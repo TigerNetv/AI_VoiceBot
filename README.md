@@ -1,6 +1,5 @@
 # AI VoiceBOT v0.01
-This project made by Ariel Shabaev [TigerNet].
-
+This project made by Ariel Shabaev [TigerNetv].
 Base on python 3.X
 
 
@@ -15,7 +14,7 @@ Base on python 3.X
 * Grammatical problems (with voice recognize)
 
 
-Modules that you need to use it :
+# Modules :
 https://pypi.org/project/SpeechRecognition 
 https://pypi.org/project/pyttsx3/
 
