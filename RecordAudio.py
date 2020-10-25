@@ -1,4 +1,3 @@
-
 import speech_recognition as sr
 import webbrowser
 import pyttsx3
@@ -27,17 +26,26 @@ voices = engine.getProperty('voices')       #getting details of current voice
 engine.setProperty('voice', voices[0].id)   #changing index, changes voices. 1 for female
 
 
-r = sr.Recognizer()
 
-def RecordAudio(ask = False):
-    if ask:
-        print(ask)
-    with sr.Microphone() as source:
-        print("Voice Command input : ")
-        audio = r.listen(source)
-        voice_data = r.recognize_google(audio)
-        print(voice_data)
-    return voice_data
+r = sr.Recognizer() # initialise a recogniser
+# listen for audio and convert it to text:
+
+def RecordAudio(ask=False):
+    with sr.Microphone() as source: # microphone as source
+        audio = r.listen(source)  # listen for the audio via source
+        voice_data = ''
+        try:
+            engine.runAndWait()
+            voice_data = r.recognize_google(audio)  # convert audio to text
+        except sr.UnknownValueError: # error: recognizer does not understand
+            engine.say('I did not get that, try again')
+            engine.runAndWait()
+        except sr.RequestError:
+            engine.say('Sorry, the service is down') # error: recognizer is not connected
+            engine.runAndWait()
+        print(f">> {voice_data.lower()}") # print what user said
+        return voice_data.lower()
+
 
 
 def respond(voice_data):
@@ -52,7 +60,7 @@ def respond(voice_data):
         engine.say('For Search location say, location')
         engine.say('For Youtube say, Youtube')
         engine.runAndWait()
-    if 'search' in voice_data:
+    if 'search' in voice_data or 'google' in voice_data:
         engine.say('What do you want to search for?')
         engine.runAndWait()        
         search = RecordAudio()
