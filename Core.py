@@ -4,8 +4,6 @@ from RecordAudio import *
 
 loopbot = 1
 
-textCommand = ''
-
 r = sr.Recognizer()
 
 engine = pyttsx3.init() # object creation
