@@ -29,3 +29,8 @@ $ pip install pyttsx3
  * Find Location
  * Exit
  
+ # Run And Setup :
+ * Download base Python 3 from official site.
+ * Setup all Modules with pip command.
+ * Download zip file and unzip it to your folder.
+ * Run core.py script to run the program.
