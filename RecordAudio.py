@@ -2,7 +2,11 @@
 import speech_recognition as sr
 import webbrowser
 import pyttsx3
+import time
 
+
+
+t = time.localtime()
 engine = pyttsx3.init() # object creation
 
 
@@ -23,14 +27,9 @@ voices = engine.getProperty('voices')       #getting details of current voice
 engine.setProperty('voice', voices[0].id)   #changing index, changes voices. 1 for female
 
 
-engine.runAndWait()
-
-
-
 r = sr.Recognizer()
 
 def RecordAudio(ask = False):
-    import speech_recognition as sr
     if ask:
         print(ask)
     with sr.Microphone() as source:
@@ -74,7 +73,8 @@ def respond(voice_data):
         youtube = RecordAudio()
         url = 'https://www.youtube.com/results?search_query=' + youtube
         webbrowser.get().open(url)
-    #if 'time' in voice_data:
-        #time.asctime([t])
+    if 'time' in voice_data:
+        engine.say(time.asctime(t))
+        engine.runAndWait()
     if 'exit' in voice_data:
         exit()
