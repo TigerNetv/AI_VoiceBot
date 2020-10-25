@@ -4,6 +4,7 @@ from RecordAudio import *
 
 loopbot = 1
 
+
 r = sr.Recognizer()
 
 engine = pyttsx3.init() # object creation
@@ -49,9 +50,9 @@ engine.runAndWait()
 
 
 
-while loopbot == 1:      
-    engine.say('please say your command')
-    engine.runAndWait()
+while loopbot == 1:
+    engine.say('Command input :')
+    engine.runAndWait()    
     voice_data = RecordAudio()
     respond(voice_data)
 
