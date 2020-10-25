@@ -3,13 +3,14 @@ Base on python 3.X
 
 
 Fixed :
-[+] Check all audio devices that connected.
-[+] All voice functions works on voice engine / voice recognize.
-[+] Starter welcome menu works on voice engine.
+
+* Check all audio devices that connected.
+* All voice functions works on voice engine / voice recognize.
+* Starter welcome menu works on voice engine.
 
 
 Bugs :
-[-] Grammatical problems (with voice recognize)
+* Grammatical problems (with voice recognize)
 
 
 Modules that you need to use it :
@@ -23,4 +24,3 @@ Voice Commands :
  * Find Location
  * Exit
  
-# AI_VoiceBot
