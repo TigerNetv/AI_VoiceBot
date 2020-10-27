@@ -51,8 +51,6 @@ engine.runAndWait()
 
 
 while loopbot == 1:
-    engine.say('Command input :')
-    engine.runAndWait()    
     voice_data = RecordAudio()
     respond(voice_data)
 
