@@ -31,8 +31,11 @@ r = sr.Recognizer() # initialise a recogniser
 # listen for audio and convert it to text:
 
 def RecordAudio(ask=False):
-    with sr.Microphone() as source: # microphone as source
+    with sr.Microphone() as source: # microphone as source    
+        engine.say("command input")
+        engine.runAndWait()        
         audio = r.listen(source)  # listen for the audio via source
+        print(">> " + r.recognize_google(audio))
         voice_data = ''
         try:
             engine.runAndWait()
@@ -43,7 +46,6 @@ def RecordAudio(ask=False):
         except sr.RequestError:
             engine.say('Sorry, the service is down') # error: recognizer is not connected
             engine.runAndWait()
-        print(f">> {voice_data.lower()}") # print what user said
         return voice_data.lower()
 
 
